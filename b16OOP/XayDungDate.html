@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng lớp Date</title>
+</head>
+<body>
+<script>
+    let myDate = function (day,month,year) {
+        this.day = day;
+        this.month = month;
+        this.year = year;
+        this.getDay = function () {
+            return this.day;
+        }
+        this.getMonth = function () {
+            return this.month;
+        }
+        this.getYear = function () {
+            return this.year;
+        }
+        this.setDay = function (day) {
+            this.day = day;
+        }
+        this.setMonth = function (month) {
+            this.month = month;
+        }
+        this.setYear = function (year) {
+            this.year = year;
+        }
+    }
+    let date1 = new myDate(1,4,2020);
+    alert(date1.getDay() + "/" + date1.getMonth() + "/" + date1.getYear());
+
+    date1.setDay(6);
+    date1.setMonth(6);
+    date1.setYear(1020);
+    alert(date1.getDay() + "/" + date1.getMonth() + "/" + date1.getYear());
+
+
+    // console.log("-------------------")
+
+    class MyDate {
+        day
+        month
+        year
+        constructor(day, month, year) {
+            this.day = day
+            this.month = month
+            this.year = year
+        }
+
+        getDay() {
+            return this.day
+        }
+        getMonth() {
+            return this.month
+        }
+        getYear() {
+            return this.year
+        }
+
+        setDay(daySet) {
+            this.day = daySet
+        }
+        setMonth(monthSet) {
+            this.month = monthSet
+        }
+        setYear(yearSet) {
+            this.year = yearSet
+        }
+        setDate(daySet,monthSet,yearSet) {
+            this.day = daySet
+            this.month = monthSet
+            this.year = yearSet
+        }
+        toString() {
+            console.log(this.day + "/" + this.month + "/" + this.year)
+        }
+    }
+
+    let date = new MyDate(2,2,2007)
+    console.log(date.day + "/" + date.month + "/" + date.year)
+
+    console.log(date.getDay())
+    console.log(date.getMonth())
+    console.log(date.getYear())
+
+    date.setDay("10")
+    date.setMonth("10")
+    date.setYear("2019")
+    console.log(date.day + "/" + date.month + "/" + date.year)
+
+    date.setDate("22","11","2021")
+    date.toString()
+
+
+
+</script>
+</body>
+</html>
