@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rectangle</title>
+</head>
+<body>
+<canvas id="canvas" width="800" height="500" style="border: 1px solid"></canvas>
+<script>
+    class Rectangle {
+        width
+        height
+        color
+        constructor(width, height, color) {
+            this.width = width
+            this.height = height
+            this.color = color
+        }
+        draw(ctx) {
+            ctx.beginPath()
+            ctx.rect(20,20, this.width, this.height)
+            ctx.stroke()
+            ctx.closePath()
+        }
+        area() {
+            return this.width * this.height
+        }
+        chuVi() {
+            return (this.width + this.height) * 2
+        }
+    }
+    let rec = new Rectangle(100,80,"red")
+    let ctx = document.getElementById("canvas").getContext("2d")
+    rec.draw(ctx)
+    alert("Diện tích: " + rec.area() + " Chu vi: " + rec.chuVi() )
+</script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Funny Circles</title>
+</head>
+<body>
+<canvas id="canvas" width="800" height="500" style="border: 1px solid"></canvas>
+<script>
+    class Circle {
+        x
+        y
+        radius
+        constructor(x, y, radius) {
+            this.x = x
+            this.y = y
+            this.radius = radius
+        }
+
+        //hàm random trả về giá trị số 0 => 255
+        getRandomHex() {
+            return Math.floor(Math.random() * 255);
+        }
+
+        //hàm dùng random màu bất kỳ theo bảng màu lục phân
+        getRandomColor() {
+            let red = this.getRandomHex();
+            let green = this.getRandomHex();
+            let blue = this.getRandomHex();
+            return "rgb(" + red + "," + blue + "," + green + ")";
+        }
+
+        speedX() {
+            this.x += 5
+        }
+
+        speedY() {
+            this.y += 5
+        }
+
+        changeRadius() {
+            this.radius +=2
+        }
+
+        drawCircle(ctx) {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+            ctx.fillStyle = "red";
+            ctx.fill();
+        }
+
+        //khởi tạo và vẽ 1 hình tròn với bán kính random trong khoảng 0 => 80, màu random theo phương thức getRandomColor
+        createCircle(ctx) {
+            let radius = Math.floor(Math.random() * 80); //bán kính 0 => 80
+            let color = this.getRandomColor(); //random màu
+            let x = Math.random() * window.innerWidth; //chỉ số vị trí tâm theo chiều trục hoành
+            let y = Math.random() * window.innerHeight; //chỉ số vị trí tâm theo chiều trục tung
+            let circle = new Circle(x, y, radius); //khởi tạo hình tròn
+            ctx.beginPath();
+            ctx.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI);
+            ctx.fillStyle = color; //tô màu theo màu đã random ở trên
+            ctx.fill();
+        }
+
+        //gọi 30 lần phương thức createCircle để tạo 30 hình tròn vs bán kính và màu khác nhau được random tự động
+        createMultipleCircle(ctx) {
+            for (let i = 0; i < 30; i++) {
+                this.createCircle(ctx);
+            }
+        }
+    }
+
+    let ctx = document.getElementById("myCanvas").getContext("2d");
+    let circle = new Circle(1, 1, 1)
+
+    // circle.createMultipleCircle(ctx)
+
+    function draw() {
+        ctx.clearRect(0, 0, 1368, 700)
+        circle.createMultipleCircle(ctx)
+        setTimeout(draw, 100)
+    }
+    draw()
+    let cir = new Circle(0, 0, 50)
+
+    function draw2() {
+        ctx.clearRect(0, 0, 1368, 700)
+        cir.speedX()
+        cir.speedY()
+        cir.changeRadius()
+        cir.drawCircle(ctx)
+        setTimeout(draw2, 100)
+        // window.requestAnimationFrame(draw2)
+    }
+    draw2()
+
+</script>
+</body>
+</html>

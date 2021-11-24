@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // function createNewPerson(name) {
+    //     let obj = {};
+    //     obj.name = name;
+    //     obj.greeting = function() {
+    //         alert('Hi! I\'m ' + this.name + '.');
+    //     };
+    //     return obj;
+    // }
+    // var salva = createNewPerson('Salva');
+    // salva.name;
+    // salva.greeting();
+
+    //-----------------
+    class Person{
+        name
+        last
+        age
+        gender
+        interests
+        constructor(first, last, age, gender, interests) {
+            this.name.first = first
+            this.name.last = last
+            this.age = age
+            this.gender = gender
+            this.interests = interests
+
+            bio() {
+                console.log(this.name.first + " " + this.name.last + " is " + this.age + " years old " + this.gender + this.interests)
+            }
+            greeting() {
+                console.log()
+            }
+        }
+    let person1 = new Person("Bob","Smith","32","male",["music","skiing"])
+    person1['age']
+</script>
+</body>
+</html>

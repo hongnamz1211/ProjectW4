@@ -6,20 +6,44 @@
 </head>
 <body>
 <script>
-    let Circle = function (radius) {
-        this.radius = radius;
-    }
-    this.getRadius = function () {
-        return radius
-    }
-    this.getArea = function () {
-        return Math.PI * radius * radius
+    // let Circle = function (radius) {
+    //     this.radius = radius;
+    //     this.getRadius = function () {
+    //         return radius
+    //     }
+    //     this.getArea = function () {
+    //         return Math.PI * radius * radius
+    //     }
+    // }
+    //
+    // let circle = new Circle(2)
+    // let radius = circle.getRadius()
+    // let area = circle.getArea()
+    //
+    // alert("radius: " + radius + "; area: " + area)
+
+    class Circle {
+        radius
+        area
+        constructor(radius,area) {
+            this.radius = radius
+            area = Math.PI * radius * radius
+            this.area = area
+        }
+
+        getRadius() {
+            return this.radius
+        }
+        setRadius(radius) {
+            this.radius = radius
+        }
+        getArea() {
+            return this.area
+        }
     }
     let circle = new Circle(2)
-    let radius = circle.getRadius()
-    let area = circle.getArea()
-
-    alert("radius: " + )
+    console.log(circle.getRadius())
+    console.log(circle.getArea())
 
 </script>
 </body>
